@@ -1,4 +1,4 @@
-﻿const express = require('express');
+const express = require('express');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,5 +15,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(Servidor iniciado en el puerto  - Valderrama Llajaruna Enrique);
+  console.log(`Servidor iniciado en el puerto ${PORT} - Valderrama Llajaruna Enrique`);
 });
