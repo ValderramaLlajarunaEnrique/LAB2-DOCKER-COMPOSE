@@ -1,0 +1,12 @@
+﻿{
+  "name": "lab02-docker-compose-api",
+  "version": "1.0.0",
+  "description": "API minima para Laboratorio 02 - Docker Compose",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
