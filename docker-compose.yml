@@ -1,0 +1,80 @@
+﻿services:
+  db:
+    image: postgres:15-alpine
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: 
+      POSTGRES_PASSWORD: 
+      POSTGRES_DB: 
+    ports:
+      - ":5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_network
+
+  api1:
+    build: .
+    container_name: api_service_1
+    restart: always
+    ports:
+      - ":3000"
+    environment:
+      PORT: 3000
+      NODE_ENV: production
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: 
+      DB_PASSWORD: 
+      DB_NAME: 
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+  api2:
+    build: .
+    container_name: api_service_2
+    restart: always
+    ports:
+      - ":3000"
+    environment:
+      PORT: 3000
+      NODE_ENV: production
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: 
+      DB_PASSWORD: 
+      DB_NAME: 
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+  api3:
+    build: .
+    container_name: api_service_3
+    restart: always
+    ports:
+      - ":3000"
+    environment:
+      PORT: 3000
+      NODE_ENV: production
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: 
+      DB_PASSWORD: 
+      DB_NAME: 
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  app_network:
+    driver: bridge
